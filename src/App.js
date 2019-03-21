@@ -1,4 +1,6 @@
 import React from "react";
+import Technologies from "./Technologies";
+import Header from "./Header";
 import "./App.css";
 
 const App = () => {
@@ -6,29 +8,6 @@ const App = () => {
     <div>
       <Header />
       <Technologies />
-    </div>
-  );
-};
-
-const Technologies = () => {
-  return (
-    <div>
-      <ul>
-        <li>css</li>
-        <li>html</li>
-        <li>js</li>
-        <li>react</li>
-      </ul>
-    </div>
-  );
-};
-
-const Header = () => {
-  return (
-    <div>
-      <a href="#s">Home</a>
-      <a href="#s">News Feed</a>
-      <a href="#s">Messages</a>
     </div>
   );
 };
