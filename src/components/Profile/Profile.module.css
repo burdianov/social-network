@@ -4,7 +4,5 @@
 }
 .content img {
   width: 100%;
-}
-.item {
-  color: greenyellow;
+  height: 200px;
 }
