@@ -1,12 +1,11 @@
 import React from "react";
-
-import classes from "./Post.module.css";
+import cls from "./Post.module.css";
 
 const Post = props => {
   //debugger;
 
   return (
-    <div className={classes.item}>
+    <div className={cls.item}>
       <img
         src="https://movies4maniacs.liberty.me/wp-content/uploads/sites/1218/2015/09/avatarsucks.jpg"
         alt=""

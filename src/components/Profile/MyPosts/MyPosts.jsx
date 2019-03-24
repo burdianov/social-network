@@ -1,6 +1,5 @@
 import React from "react";
-
-import classes from "./MyPosts.module.css";
+import cls from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = props => {
@@ -11,7 +10,7 @@ const MyPosts = props => {
         <textarea />
         <button>Add Post</button>
       </div>
-      <div className={classes.posts}>
+      <div className={cls.posts}>
         <Post message="Hi, how are you?" likesCount="0" />
         <Post message="It's my first post" likesCount="23" />
       </div>
