@@ -1,5 +1,6 @@
 import React from "react";
 import cls from "./Navbar.module.css";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   let classes = [cls.item, cls.active];
@@ -7,19 +8,29 @@ const Navbar = () => {
   return (
     <nav className={cls.nav}>
       <div className={cls.item}>
-        <a href="/profile">Profile</a>
+        <NavLink to="/profile" activeClassName={cls.active}>
+          Profile
+        </NavLink>
       </div>
       <div className={classes.join(" ")}>
-        <a href="/dialogs">Messages</a>
+        <NavLink to="/dialogs" activeClassName={cls.active}>
+          Messages
+        </NavLink>
       </div>
       <div className={cls.item}>
-        <a href="news">News</a>
+        <NavLink to="/news" activeClassName={cls.active}>
+          News
+        </NavLink>
       </div>
       <div className={cls.item}>
-        <a href="music">Music</a>
+        <NavLink to="/music" activeClassName={cls.active}>
+          Music
+        </NavLink>
       </div>
       <div className={cls.item}>
-        <a href="settings">Settings</a>
+        <NavLink to="/settings" activeClassName={cls.active}>
+          Settings
+        </NavLink>
       </div>
     </nav>
   );
