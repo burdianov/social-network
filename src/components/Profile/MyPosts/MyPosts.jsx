@@ -3,7 +3,7 @@ import cls from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = props => {
-  const postData = [
+  const posts = [
     { id: 1, message: "Hi, how are you?", likesCount: "3" },
     { id: 2, message: "It's my first post", likesCount: "5" }
   ];
@@ -20,7 +20,7 @@ const MyPosts = props => {
         </div>
       </div>
       <div className={cls.posts}>
-        {postData.map(post => {
+        {posts.map(post => {
           return (
             <Post
               key={post.id}
