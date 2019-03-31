@@ -3,15 +3,23 @@ import cls from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = props => {
+  const newPostElement = React.createRef();
+
+  const addPost = () => {
+    const text = newPostElement.current.value;
+
+    alert(text);
+  };
+
   return (
     <div className={cls.postsBlock}>
       <h3>My posts</h3>
       <div>
         <div>
-          <textarea />
+          <textarea ref={newPostElement} />
         </div>
         <div>
-          <button>Add Post</button>
+          <button onClick={addPost}>Add Post</button>
         </div>
       </div>
       <div className={cls.posts}>
