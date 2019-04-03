@@ -5,11 +5,16 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import { addPost } from "./../../redux/state";
 
 const Profile = props => {
-  const { posts } = props.state;
+  const { posts, newPostText } = props.profilePage;
   return (
     <div>
       <ProfileInfo />
-      <MyPosts posts={posts} addPost={props.addPost} />
+      <MyPosts
+        posts={posts}
+        newPostText={newPostText}
+        addPost={props.addPost}
+        updateNewPostText={props.updateNewPostText}
+      />
     </div>
   );
 };
