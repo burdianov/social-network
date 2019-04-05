@@ -1,6 +1,4 @@
-let rerenderEntireTree = () => {
-  console.log("State changed");
-};
+let rerenderEntireTree;
 
 let state = {
   profilePage: {
