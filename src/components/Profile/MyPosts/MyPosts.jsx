@@ -1,21 +1,21 @@
 import React from "react";
 import cls from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import {
+  updateNewPostTextActionCreator,
+  addPostActionCreator
+} from "../../../redux/state";
 
 const MyPosts = props => {
   const newPostElement = React.createRef();
 
   const addPost = () => {
-    // props.addPost();
-    const action = { type: "ADD-POST" };
-    props.dispatch(action);
+    props.dispatch(addPostActionCreator());
   };
 
   const onPostChange = () => {
     const value = newPostElement.current.value;
-    // props.updateNewPostText(value);
-    const action = { type: "UPDATE-NEW-POST-TEXT", newText: value };
-    props.dispatch(action);
+    props.dispatch(updateNewPostTextActionCreator(value));
   };
 
   return (
