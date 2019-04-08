@@ -11,6 +11,8 @@ import Settings from "./components/Settings/Settings";
 
 const App = props => {
   const { dialogsPage, profilePage } = props.state;
+  const state = props.store.getState().dialogsPage;
+
   return (
     <div className="app-wrapper">
       <Header />
@@ -22,7 +24,7 @@ const App = props => {
             <Profile profilePage={profilePage} dispatch={props.dispatch} />
           )}
         />
-        <Route path="/dialogs" render={() => <Dialogs state={dialogsPage} />} />
+        <Route path="/dialogs" render={() => <Dialogs store={props.store} />} />
         <Route path="/news" component={News} />
         <Route path="/music" component={Music} />
         <Route exact path="/settings" component={Settings} />
