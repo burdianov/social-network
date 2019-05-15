@@ -3,3 +3,12 @@
   height: 100px;
   object-fit: cover;
 }
+
+.selectedPage {
+  font-weight: bold;
+}
+
+.pageNumber {
+  cursor: pointer;
+  margin-left: 1em;
+}
