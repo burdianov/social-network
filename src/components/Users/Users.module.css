@@ -12,3 +12,7 @@
   cursor: pointer;
   margin-left: 1em;
 }
+
+button {
+  cursor: pointer;
+}
