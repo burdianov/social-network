@@ -1,7 +1,12 @@
 import React from "react";
 import cls from "./ProfileInfo.module.css";
+import Preloader from "../../common/Preloader/Preloader";
 
 const ProfileInfo = props => {
+  if (!props.profile) {
+    return <Preloader />;
+  }
+
   return (
     <React.Fragment>
       <div>
@@ -11,7 +16,9 @@ const ProfileInfo = props => {
           alt=""
         />
       </div>
-      <div className={cls.descriptionBlock}>avatar + description</div>
+      <div className={cls.descriptionBlock}>
+        <img src={props.profile.photos.large} />
+      </div>
     </React.Fragment>
   );
 };
