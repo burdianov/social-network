@@ -7,7 +7,8 @@ import {
   setUsers,
   setCurrentPage,
   setTotalUsersCount,
-  toggleIsFetching
+  toggleIsFetching,
+  getUsersThunkCreator
 } from "../../redux/usersReducer";
 import Preloader from "../common/Preloader/Preloader";
 import { usersAPI } from "../../api/api";
@@ -15,14 +16,18 @@ import { toggleFollowingInProgress } from "./../../redux/usersReducer";
 
 class UsersContainer extends Component {
   componentDidMount() {
-    this.props.toggleIsFetching(true);
-    usersAPI
-      .getUsers(this.props.currentPage, this.props.pageSize)
-      .then(data => {
-        this.props.setUsers(data.items);
-        this.props.setTotalUsersCount(data.totalCount);
-        this.props.toggleIsFetching(false);
-      });
+    this.props.getUsersThunkCreator(
+      this.props.currentPage,
+      this.props.pageSize
+    );
+    // this.props.toggleIsFetching(true);
+    // usersAPI
+    //   .getUsers(this.props.currentPage, this.props.pageSize)
+    //   .then(data => {
+    //     this.props.setUsers(data.items);
+    //     this.props.setTotalUsersCount(data.totalCount);
+    //     this.props.toggleIsFetching(false);
+    //   });
   }
 
   onPageChanged = pageNumber => {
@@ -75,6 +80,7 @@ export default connect(
     setCurrentPage,
     setTotalUsersCount,
     toggleIsFetching,
-    toggleFollowingInProgress
+    toggleFollowingInProgress,
+    getUsersThunkCreator
   }
 )(UsersContainer);

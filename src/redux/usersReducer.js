@@ -1,4 +1,4 @@
-import { access } from "fs";
+import { usersAPI } from "../api/api";
 
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
@@ -97,5 +97,17 @@ export const toggleFollowingInProgress = (isFetching, userId) => ({
   isFetching,
   userId
 });
+
+export const getUsersThunkCreator = (currentPage, pageSize) => {
+  return dispatch => {
+    dispatch(toggleIsFetching(true));
+
+    usersAPI.getUsers(currentPage, pageSize).then(data => {
+      dispatch(setUsers(data.items));
+      dispatch(setTotalUsersCount(data.totalCount));
+      dispatch(toggleIsFetching(false));
+    });
+  };
+};
 
 export default usersReducer;
