@@ -16,13 +16,13 @@ export const usersAPI = {
         return response.data;
       });
   },
-  unfollowUser: id => {
-    return axiosInstance.delete(`follow/${id}`).then(response => {
+  unfollow: userId => {
+    return axiosInstance.delete(`follow/${userId}`).then(response => {
       return response.data;
     });
   },
-  followUser: id => {
-    return axiosInstance.post(`follow/${id}`).then(response => {
+  follow: userId => {
+    return axiosInstance.post(`follow/${userId}`).then(response => {
       return response.data;
     });
   }
