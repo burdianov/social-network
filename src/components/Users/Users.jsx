@@ -15,7 +15,7 @@ const Users = props => {
   }
   return (
     <div>
-      <div>
+      <div className={styles.pagesNavigation}>
         {pages.map(page => {
           const classes = [];
           classes.push(styles.pageNumber);
