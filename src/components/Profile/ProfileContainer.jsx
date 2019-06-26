@@ -35,8 +35,8 @@ export default compose(
     mapStateToProps,
     { getUserProfile }
   ),
-  withRouter,
-  withAuthRedirect
+  withRouter
+  // withAuthRedirect
 )(ProfileContainer);
 
 // const WithUrlDataContainerComponent = withRouter(AuthRedirectComponent);
