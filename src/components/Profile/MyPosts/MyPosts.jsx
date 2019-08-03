@@ -1,6 +1,6 @@
-import React from "react";
-import cls from "./MyPosts.module.css";
-import Post from "./Post/Post";
+import React from 'react';
+import styles from './MyPosts.module.css';
+import Post from './Post/Post';
 
 const MyPosts = props => {
   const postsElements = props.posts.map(p => (
@@ -19,7 +19,7 @@ const MyPosts = props => {
   };
 
   return (
-    <div className={cls.postsBlock}>
+    <div className={styles.postsBlock}>
       <h3>My posts</h3>
       <div>
         <div>
@@ -33,7 +33,7 @@ const MyPosts = props => {
           <button onClick={onAddPost}>Add Post</button>
         </div>
       </div>
-      <div className={cls.posts}>{postsElements}</div>
+      <div className={styles.posts}>{postsElements}</div>
     </div>
   );
 };
