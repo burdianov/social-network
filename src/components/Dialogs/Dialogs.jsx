@@ -1,8 +1,7 @@
-import React from "react";
-import cls from "./Dialogs.module.css";
-import DialogItem from "./DialogItem/DialogItem";
-import Message from "./Message/Message";
-import { Redirect } from "react-router-dom";
+import React from 'react';
+import cls from './Dialogs.module.css';
+import DialogItem from './DialogItem/DialogItem';
+import Message from './Message/Message';
 
 const Dialogs = props => {
   const { dialogs, messages, newMessageBody } = props.dialogsPage;
@@ -34,7 +33,7 @@ const Dialogs = props => {
             <textarea
               value={newMessageBody}
               onChange={onNewMessageChange}
-              placeholder="Enter your message..."
+              placeholder='Enter your message...'
             />
           </div>
           <button onClick={onSendMessageClick}>Send</button>

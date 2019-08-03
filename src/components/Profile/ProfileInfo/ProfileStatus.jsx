@@ -1,26 +1,38 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class ProfileStatus extends Component {
   state = {
-    editMode: false
+    editMode: false,
+    status: this.props.status
   };
-  activateEditMode = e => {
+
+  activateEditMode = () => {
+    console.log('this: ', this);
     this.setState({
       editMode: true
     });
   };
-  deactivateEditMode = e => {
+
+  deactivateEditMode = () => {
     this.setState({
       editMode: false
     });
+    this.props.updateStatus(this.state.status);
   };
+
+  onStatusChange = e => {
+    this.setState({
+      status: e.currentTarget.value
+    });
+  };
+
   render() {
     return (
       <>
         {!this.state.editMode && (
           <div>
             <span onDoubleClick={this.activateEditMode}>
-              {this.props.status}
+              {this.props.status || '-----'}
             </span>
           </div>
         )}
@@ -29,7 +41,8 @@ class ProfileStatus extends Component {
             <input
               autoFocus={true}
               onBlur={this.deactivateEditMode}
-              value={this.props.status}
+              value={this.state.status}
+              onChange={this.onStatusChange}
             />
           </div>
         )}

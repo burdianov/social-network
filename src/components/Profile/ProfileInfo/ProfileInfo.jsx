@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import styles from "./ProfileInfo.module.css";
-import Preloader from "../../common/Preloader/Preloader";
-import userPhoto from "../../../assets/images/user.png";
-import ProfileStatus from "./ProfileStatus";
+import React, { useState } from 'react';
+import styles from './ProfileInfo.module.css';
+import Preloader from '../../common/Preloader/Preloader';
+import userPhoto from '../../../assets/images/user.png';
+import ProfileStatus from './ProfileStatus';
 
 const ProfileInfo = props => {
   if (!props.profile) {
@@ -23,7 +23,10 @@ const ProfileInfo = props => {
           className={styles.avatar}
           src={props.profile.photos.large || userPhoto}
         />
-        <ProfileStatus status={"Hai noroc"} />
+        <ProfileStatus
+          status={props.status}
+          updateStatus={props.updateStatus}
+        />
       </div>
     </>
   );

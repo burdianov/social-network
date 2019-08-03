@@ -1,5 +1,5 @@
-import React from "react";
-import cls from "./Settings.module.css";
+import React from 'react';
+import styles from './Settings.module.css';
 
 const Settings = props => {
   return <div>Settings</div>;
