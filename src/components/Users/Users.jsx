@@ -1,7 +1,8 @@
-import React from 'react';
-import styles from './Users.module.css';
-import userPhoto from '../../assets/images/user.png';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import styles from "./Users.module.css";
+import userPhoto from "../../assets/images/user.png";
+import { NavLink } from "react-router-dom";
+import uuid from "uuid";
 
 const Users = props => {
   const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -24,7 +25,8 @@ const Users = props => {
           }
           return (
             <span
-              className={classes.join(' ')}
+              key={uuid.v4()}
+              className={classes.join(" ")}
               onClick={event => {
                 props.onPageChanged(page);
               }}
@@ -38,13 +40,13 @@ const Users = props => {
         <div key={user.id}>
           <span>
             <div>
-              <NavLink to={'/profile/' + user.id}>
+              <NavLink to={"/profile/" + user.id}>
                 <img
                   src={
                     user.photos.small != null ? user.photos.small : userPhoto
                   }
                   className={styles.userPhoto}
-                  alt=''
+                  alt=""
                 />
               </NavLink>
             </div>
@@ -80,8 +82,8 @@ const Users = props => {
               <div>{user.status}</div>
             </span>
             <span>
-              <div>{'user.location.country'}</div>
-              <div>{'user.location.country'}</div>
+              <div>{"user.location.country"}</div>
+              <div>{"user.location.country"}</div>
             </span>
           </span>
         </div>
