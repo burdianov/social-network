@@ -6,9 +6,9 @@ import {
   unfollow,
   setCurrentPage,
   getUsers
-} from "../../redux/usersReducer";
+} from "../../redux/users-reducer";
 import Preloader from "../common/Preloader/Preloader";
-import { toggleFollowingInProgress } from "./../../redux/usersReducer";
+import { toggleFollowingInProgress } from "./../../redux/users-reducer";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
 
@@ -51,19 +51,6 @@ const mapStateToProps = state => {
     followingInProgress: state.usersPage.followingInProgress
   };
 };
-
-// export default withAuthRedirect(
-//   connect(
-//     mapStateToProps,
-//     {
-//       follow,
-//       unfollow,
-//       setCurrentPage,
-//       toggleFollowingInProgress,
-//       getUsers
-//     }
-//   )(UsersContainer)
-// );
 
 export default compose(
   withAuthRedirect,

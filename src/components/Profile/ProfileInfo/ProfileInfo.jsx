@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import styles from './ProfileInfo.module.css';
-import Preloader from '../../common/Preloader/Preloader';
-import userPhoto from '../../../assets/images/user.png';
-import ProfileStatus from './ProfileStatus';
+import React from "react";
+import styles from "./ProfileInfo.module.css";
+import Preloader from "../../common/Preloader/Preloader";
+import userPhoto from "../../../assets/images/user.png";
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = props => {
   if (!props.profile) {
@@ -13,6 +13,7 @@ const ProfileInfo = props => {
     <>
       <div className={styles.descriptionBlock}>
         <img
+          alt="avatar"
           className={styles.avatar}
           src={props.profile.photos.large || userPhoto}
         />

@@ -1,5 +1,4 @@
-import React from 'react';
-import styles from './News.module.css';
+import React from "react";
 
 const News = props => {
   return <div>News</div>;

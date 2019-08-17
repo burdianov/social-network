@@ -1,35 +1,39 @@
-import React from 'react';
-import { reduxForm, Field } from 'redux-form';
-import { Input } from '../common/FormControls/FormControls';
-import { required } from '../../utils/validators/validators';
-import { connect } from 'react-redux';
-import { login } from './../../redux/authReducer';
-import { Redirect } from 'react-router-dom';
+import React from "react";
+import { reduxForm, Field } from "redux-form";
+import { Input } from "../common/FormControls/FormControls";
+import { required } from "../../utils/validators/validators";
+import { connect } from "react-redux";
+import { login } from "../../redux/auth-reducer";
+import { Redirect } from "react-router-dom";
+import styles from "./../common/FormControls/FormControls.module.css";
 
 const LoginForm = props => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div>
         <Field
-          name='email'
-          placeholder='Email'
+          name="email"
+          placeholder="Email"
           component={Input}
           validate={[required]}
         />
       </div>
       <div>
         <Field
-          name='password'
-          placeholder='Password'
+          name="password"
+          placeholder="Password"
           component={Input}
           validate={[required]}
-          type='password'
+          type="password"
         />
       </div>
       <div>
-        <Field name='rememberMe' type='checkbox' component={Input} />
+        <Field name="rememberMe" type="checkbox" component={Input} />
         remember me
       </div>
+      {props.error && (
+        <div className={styles.formSummaryError}>{props.error}</div>
+      )}
       <div>
         <button>Login</button>
       </div>
@@ -37,7 +41,7 @@ const LoginForm = props => {
   );
 };
 
-const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm);
+const LoginReduxForm = reduxForm({ form: "login" })(LoginForm);
 
 const Login = props => {
   const onSubmit = formData => {
@@ -45,7 +49,7 @@ const Login = props => {
   };
 
   if (props.isAuth) {
-    return <Redirect to={'/profile'} />;
+    return <Redirect to={"/profile"} />;
   }
 
   return (

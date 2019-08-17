@@ -1,19 +1,25 @@
-import React, { Component } from 'react';
-import Profile from './Profile';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from "react";
+import Profile from "./Profile";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import {
   getUserProfile,
   getStatus,
   updateStatus
-} from './../../redux/profileReducer';
-import { compose } from 'redux';
+} from "./../../redux/profile-reducer";
+import { compose } from "redux";
+
+// inside a functional component, the history can be obtained as follows:
+// import history from "history/createBrowserHistory";
 
 class ProfileContainer extends Component {
   componentDidMount() {
     let userId = this.props.match.params.userId;
     if (!userId) {
-      userId = 1087;
+      userId = this.props.authorisedUserId;
+      if (!userId) {
+        this.props.history.push("/login");
+      }
     }
     this.props.getUserProfile(userId);
     this.props.getStatus(userId);
@@ -36,7 +42,9 @@ class ProfileContainer extends Component {
 const mapStateToProps = state => {
   return {
     profile: state.profilePage.profile,
-    status: state.profilePage.status
+    status: state.profilePage.status,
+    authorisedUserId: state.auth.userId,
+    isAuth: state.auth.isAuth
   };
 };
 
