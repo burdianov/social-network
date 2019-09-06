@@ -1,0 +1,17 @@
+.pagesNavigation {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.selectedPage {
+    font-weight: bold;
+}
+
+.pageNumber {
+    cursor: pointer;
+    margin-left: 1em;
+}
+
+button {
+    cursor: pointer;
+}

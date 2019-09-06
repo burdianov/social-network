@@ -1,32 +1,32 @@
-import { createSelector } from "reselect";
+import {createSelector} from "reselect";
 
 const getUsersSelector = state => {
-  return state.usersPage.users;
+    return state.usersPage.users;
 };
 
 export const getUsers = createSelector(
-  getUsersSelector,
-  users => {
-    return users.filter(user => true);
-  }
+    getUsersSelector,
+    users => {
+        return users.filter(user => true);
+    }
 );
 
 export const getPageSize = state => {
-  return state.usersPage.pageSize;
+    return state.usersPage.pageSize;
 };
 
 export const getTotalUsersCount = state => {
-  return state.usersPage.totalUsersCount;
+    return state.usersPage.totalUsersCount;
 };
 
 export const getCurrentPage = state => {
-  return state.usersPage.currentPage;
+    return state.usersPage.currentPage;
 };
 
 export const getIsFetching = state => {
-  return state.usersPage.isFetching;
+    return state.usersPage.isFetching;
 };
 
 export const getFollowingInProgress = state => {
-  return state.usersPage.followingInProgress;
+    return state.usersPage.followingInProgress;
 };
