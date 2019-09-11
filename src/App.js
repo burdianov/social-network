@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
-import {Route, withRouter} from "react-router-dom";
-import {connect} from "react-redux";
+import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {connect, Provider} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import "./App.css";
@@ -14,6 +14,7 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
 import Preloader from "./components/common/Preloader/Preloader";
+import store from './redux/redux-store';
 
 const App = ({initializeApp, initialized}) => {
     useEffect(() => {
@@ -44,10 +45,22 @@ const mapStateToProps = state => ({
     initialized: state.app.initialized
 });
 
-export default compose(
+const AppContainer = compose(
     withRouter,
     connect(
         mapStateToProps,
         {initializeApp}
     )
 )(App);
+
+const SamuraiJSApp = (props) => {
+    return (
+        <BrowserRouter>
+            <Provider store={store}>
+                <AppContainer/>
+            </Provider>
+        </BrowserRouter>
+    )
+};
+
+export default SamuraiJSApp;
