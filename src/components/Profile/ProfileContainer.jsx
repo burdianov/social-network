@@ -8,7 +8,7 @@ import {
     updateStatus
 } from "./../../redux/profile-reducer";
 import {compose} from "redux";
-import {savePhoto} from "../../redux/profile-reducer";
+import {savePhoto, saveProfile} from "../../redux/profile-reducer";
 
 // inside a functional component, the history can be obtained as follows:
 // import history from "history/createBrowserHistory";
@@ -64,7 +64,7 @@ const mapStateToProps = state => {
 export default compose(
     connect(
         mapStateToProps,
-        {getUserProfile, getStatus, updateStatus, savePhoto}
+        {getUserProfile, getStatus, updateStatus, savePhoto, saveProfile}
     ),
     withRouter
 )(ProfileContainer);
