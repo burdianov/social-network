@@ -6,7 +6,7 @@ import {
     getUserProfile,
     getStatus,
     updateStatus
-} from "./../../redux/profile-reducer";
+} from "../../redux/profile-reducer";
 import {compose} from "redux";
 import {savePhoto, saveProfile} from "../../redux/profile-reducer";
 
